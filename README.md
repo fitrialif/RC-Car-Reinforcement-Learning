@@ -19,7 +19,7 @@ USE_ANALOG = False
 Right now my hardwares are:
 1. Raspberry PI 3 (1 unit)
 2. REKA Board (1 unit)
-3. ultrasonic sensors (4 units)placed on infront, back, left and right
+3. ultrasonic sensors (4 units) placed on infront, back, left and right
 4. enough jump wires
 5. breadboards
 6. RC Car (can use both digital and analog)
