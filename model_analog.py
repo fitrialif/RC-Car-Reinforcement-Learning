@@ -24,8 +24,8 @@ class Model:
 			self.w_actions.append(tf.Variable(tf.truncated_normal([128, 1], stddev = 0.1)))
 			self.b_actions.append(tf.Variable(tf.truncated_normal([1], stddev = 0.01)))
 			
-		feed_forward = tf.nn.relu(tf.matmul(self.X, w_1) + b_1)
-		feed_forward = tf.nn.relu(tf.matmul(feed_forward, w_2) + b_2)
+		feed_forward = tf.nn.sigmoid(tf.matmul(self.X, w_1) + b_1)
+		feed_forward = tf.nn.sigmoid(tf.matmul(feed_forward, w_2) + b_2)
 		
 		self.logits = []
 		for i in range(ACTIONS):

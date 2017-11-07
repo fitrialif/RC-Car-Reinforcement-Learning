@@ -93,7 +93,6 @@ def on_car_response(*args):
 				if not USE_ANALOG:
 					y_batch.append(reward_batch[i])
 				else:
-					print np.log1p(reward_batch[i])
 					y_batch.append(np.log1p(reward_batch[i]))
 			else:
 				if not USE_ANALOG:
