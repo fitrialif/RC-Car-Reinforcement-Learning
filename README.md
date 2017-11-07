@@ -23,7 +23,7 @@ FRAME_PER_ACTION = 1
 USE_ANALOG = False
 ```
 
-Right now my hardwares are:
+Right now my hardware are:
 1. Raspberry PI 3 (1 unit)
 2. REKA Board (1 unit)
 3. ultrasonic sensors (4 units) placed on infront, back, left and right
