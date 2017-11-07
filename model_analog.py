@@ -5,7 +5,7 @@ from setting import *
 
 class Model:
 	def __init__(self):
-		self.middle_game = False
+		self.on_drive = False
 		self.memory = deque()
 		self.initial_sensor = np.zeros((INITIAL_MEMORY, ACTIONS))
 		self.X = tf.placeholder("float", [None, ACTIONS])
@@ -24,8 +24,8 @@ class Model:
 			self.w_actions.append(tf.Variable(tf.truncated_normal([128, 1], stddev = 0.1)))
 			self.b_actions.append(tf.Variable(tf.truncated_normal([1], stddev = 0.01)))
 			
-		feed_forward = tf.sigmoid(tf.matmul(self.X, w_1) + b_1)
-		feed_forward = tf.sigmoid(tf.matmul(feed_forward, w_2) + b_2)
+		feed_forward = tf.nn.relu(tf.matmul(self.X, w_1) + b_1)
+		feed_forward = tf.nn.relu(tf.matmul(feed_forward, w_2) + b_2)
 		
 		self.logits = []
 		for i in range(ACTIONS):
@@ -36,5 +36,5 @@ class Model:
 			self.readout.append(tf.reduce_sum(tf.multiply(self.logits[i], self.actions[i]), reduction_indices = 1))
 			
 		self.cost = sum([tf.sqrt(tf.reduce_mean(tf.square(self.Y - readout))) for readout in self.readout])
-		self.optimizer = tf.train.AdamOptimizer(1e-6).minimize(self.cost)
+		self.optimizer = tf.train.AdamOptimizer(0.01).minimize(self.cost)
 		
