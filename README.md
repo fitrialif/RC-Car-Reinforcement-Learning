@@ -1,5 +1,12 @@
 # RC-Car-Reinforcement-Learning
-Deep-Q Reinforcement learning to train a RC car to become self-drive using 4 ultrasonic sensors
+Deep-Q Reinforcement learning to train a RC car to become self-drive using 4 ultrasonic sensors.
+
+Use Tensorflow on 2 hidden layers with 128 size layer each on Deep Feed-Forward Neural Network.
+
+Based on Bellman Policy Equation. Simple fuzzy, if not accident, apply this equation on our sensor distances.
+<img src='screenshot-RC/bellman.png' width='700'>
+
+If accident, take exactly our sensor distances.
 
 Support Digital and Analog RC Engines, you might need to check in setting.py
 ```python
@@ -29,3 +36,9 @@ Right now my hardwares are:
 2. Raspberry PI 3 will broadcast sensor values to our deep neural networks in our server (can be laptop or server)
 3. Our server will return output value which are {left, right, forward, backward}
 4. Keep doing this until fit enough
+
+### Analog outputs on simulation
+![alt text](screenshot-RC/analog.png)
+
+### Digital outputs on simulation
+![alt text](screenshot-RC/digital.png)
